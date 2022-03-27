@@ -14,6 +14,15 @@ import { HomeComponent } from './views/home/home.component';
 import { MatCardModule } from '@angular/material/card';
 import { TaskCrudComponent } from './views/task-crud/task-crud.component';
 import { MatButtonModule } from '@angular/material/button';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
+import { HttpClientModule } from '@angular/common/http';
+import { TaskCreateComponent } from './task/task-create/task-create.component';
+import { FormsModule } from '@angular/forms'
+import { MatFormFieldModule } from '@angular/material/form-field'
+import { MatInputModule } from '@angular/material/input';
+import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core';
 
 @NgModule({
   declarations: [
@@ -22,7 +31,8 @@ import { MatButtonModule } from '@angular/material/button';
     FooterComponent,
     NavComponent,
     HomeComponent,
-    TaskCrudComponent
+    TaskCrudComponent,
+    TaskCreateComponent
   ],
   imports: [
     BrowserModule,
@@ -32,7 +42,15 @@ import { MatButtonModule } from '@angular/material/button';
     MatSidenavModule,
     MatListModule,
     MatCardModule,
-    MatButtonModule
+    MatButtonModule,
+    MatSnackBarModule,
+    HttpClientModule,
+    FormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    MatDatepickerModule,
+    MatNativeDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

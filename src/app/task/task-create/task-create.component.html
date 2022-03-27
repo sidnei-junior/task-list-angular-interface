@@ -1,0 +1,33 @@
+<mat-card>
+    <mat-card-title>Nova Tarefa</mat-card-title>
+    <form>
+        <mat-form-field>
+            <input matInput placeholder="Título" [(ngModel)]="task.title" [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+        <mat-form-field>
+            <input matInput placeholder="Discrição" [(ngModel)]="task.description"
+                [ngModelOptions]="{standalone: true}">
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Prioridade</mat-label>
+            <mat-select [(ngModel)]="task.priority" [ngModelOptions]="{standalone: true}">
+                <mat-option *ngFor="let priority of priorities" [value]="priority.value">
+                    {{priority.viewValue}}
+                </mat-option>
+            </mat-select>
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Escolha a data de finalização</mat-label>
+            <input matInput [matDatepicker]="picker" [(ngModel)]="task.deadline" [ngModelOptions]="{standalone: true}" autocomplete="off">
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+    </form>
+    <button mat-raised-button (click)="createTask()" color="primary">
+        Salvar
+    </button>
+
+    <button mat-raised-button (click)="cancel()">
+        Cancelar
+    </button>
+</mat-card>
