@@ -25,6 +25,9 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { TaskReadComponent } from './task/task-read/task-read.component';
 import { MatTableModule } from '@angular/material/table';
+import { TaskUpdateComponent } from './task/task-update/task-update.component';
+import { TaskDeleteComponent } from './task/task-delete/task-delete.component';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,9 @@ import { MatTableModule } from '@angular/material/table';
     HomeComponent,
     TaskCrudComponent,
     TaskCreateComponent,
-    TaskReadComponent
+    TaskReadComponent,
+    TaskUpdateComponent,
+    TaskDeleteComponent
   ],
   imports: [
     BrowserModule,
@@ -54,7 +59,8 @@ import { MatTableModule } from '@angular/material/table';
     MatSelectModule,
     MatDatepickerModule,
     MatNativeDateModule,
-    MatTableModule
+    MatTableModule,
+    MatCheckboxModule
   ],
   providers: [],
   bootstrap: [AppComponent]

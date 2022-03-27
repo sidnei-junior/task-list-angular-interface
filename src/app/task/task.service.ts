@@ -28,4 +28,19 @@ export class TaskService {
   read(): Observable<Task[]> {
     return this.http.get<Task[]>(this.baseURL)
   }
+
+  readById(id: string): Observable<Task> {
+    const url = `${this.baseURL}/${id}`
+    return this.http.get<Task>(url)
+  }
+
+  update(task: Task): Observable<Task> {
+    const url = `${this.baseURL}`
+    return this.http.put<Task>(url, task)
+  }
+
+  delete(id: string): Observable<Task> {
+    const url = `${this.baseURL}/${id}`;
+    return this.http.delete<Task>(url);
+  }
 }
