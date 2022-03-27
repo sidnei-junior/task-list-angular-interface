@@ -23,6 +23,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
+import { TaskReadComponent } from './task/task-read/task-read.component';
+import { MatTableModule } from '@angular/material/table';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     NavComponent,
     HomeComponent,
     TaskCrudComponent,
-    TaskCreateComponent
+    TaskCreateComponent,
+    TaskReadComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,8 @@ import { MatNativeDateModule } from '@angular/material/core';
     MatInputModule,
     MatSelectModule,
     MatDatepickerModule,
-    MatNativeDateModule
+    MatNativeDateModule,
+    MatTableModule
   ],
   providers: [],
   bootstrap: [AppComponent]

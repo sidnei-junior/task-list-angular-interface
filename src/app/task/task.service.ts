@@ -24,4 +24,8 @@ export class TaskService {
   create(task: Task): Observable<Task> {
     return this.http.post<Task>(this.baseURL, task)
   }
+
+  read(): Observable<Task[]> {
+    return this.http.get<Task[]>(this.baseURL)
+  }
 }
