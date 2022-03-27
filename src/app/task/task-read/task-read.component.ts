@@ -17,7 +17,6 @@ export class TaskReadComponent implements OnInit {
   ngOnInit(): void {
     this.taskService.read().subscribe(tasks => {
       this.tasks = tasks
-      console.log(this.tasks)
     })
   }
 

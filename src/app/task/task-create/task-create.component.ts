@@ -31,7 +31,6 @@ export class TaskCreateComponent implements OnInit {
   }
 
   createTask(): void {
-    console.log(this.task.deadline)
     let backendFormatTask = JSON.parse(JSON.stringify(this.task));
     backendFormatTask.deadline = new Date(backendFormatTask.deadline).getTime();
     this.taskService.create(backendFormatTask).subscribe(() => {
