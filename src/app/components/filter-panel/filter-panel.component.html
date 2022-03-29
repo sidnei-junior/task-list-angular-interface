@@ -1,0 +1,10 @@
+<form>
+    <mat-form-field>
+        <mat-label>Filtro por estado</mat-label>
+        <mat-select [(ngModel)]="statusSelected" [ngModelOptions]="{standalone: true}" (selectionChange)="changeStatusFilter()">
+            <mat-option *ngFor="let status of statuses" [value]="status.value">
+                {{status.viewValue}}
+            </mat-option>
+        </mat-select>
+    </mat-form-field>
+</form>

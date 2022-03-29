@@ -1,0 +1,15 @@
+form {
+    padding: 0 16px;
+}
+
+.mat-form-field {
+    width: 100%;
+}
+
+mat-label {
+    color: #fff;
+}
+
+div.mat-select-value {
+    color: #fff !important;
+}

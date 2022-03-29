@@ -1,42 +1,46 @@
-<div class="mat-elevation-z4">
-    <table mat-table [dataSource]="tasks">
-      <!-- Id Column -->
-      <ng-container matColumnDef="id">
-        <th mat-header-cell *matHeaderCellDef>Id</th>
-        <td mat-cell *matCellDef="let row">{{row.id}}</td>
-      </ng-container>
+<div>
+  <app-filter-panel></app-filter-panel>
+  <div class="mat-elevation-z4">
+      <table mat-table [dataSource]="tasks">
+        <!-- Id Column -->
+        <ng-container matColumnDef="id">
+          <th mat-header-cell *matHeaderCellDef>Id</th>
+          <td mat-cell *matCellDef="let row">{{row.id}}</td>
+        </ng-container>
+    
+        <!-- Title Column -->
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef>Título</th>
+          <td mat-cell *matCellDef="let row">{{row.title}}</td>
+        </ng-container>
   
-      <!-- Title Column -->
-      <ng-container matColumnDef="title">
-        <th mat-header-cell *matHeaderCellDef>Título</th>
-        <td mat-cell *matCellDef="let row">{{row.title}}</td>
-      </ng-container>
+        <!-- Priority Column -->
+        <ng-container matColumnDef="priority">
+          <th mat-header-cell *matHeaderCellDef>Prioridade</th>
+          <td mat-cell *matCellDef="let row">{{ translatePriority(row.priority) }}</td>
+        </ng-container>
+        
+        <!-- Action Column -->
+        <ng-container matColumnDef="action">
+          <th mat-header-cell *matHeaderCellDef>Ações</th>
+          <td mat-cell *matCellDef="let row">
+              <a routerLink="/task/update/{{ row.id }}" class="edit">
+                  <i class="material-icons">
+                      edit
+                  </i>
+              </a>
+              <a routerLink="/task/delete/{{ row.id }}" class="delete">
+                  <i class="material-icons delete">
+                      delete
+                  </i>
+              </a>
+          </td>
+        </ng-container>
+    
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+    </div>
+</div>
 
-      <!-- Priority Column -->
-      <ng-container matColumnDef="priority">
-        <th mat-header-cell *matHeaderCellDef>Prioridade</th>
-        <td mat-cell *matCellDef="let row">{{ translatePriority(row.priority) }}</td>
-      </ng-container>
-      
-      <!-- Action Column -->
-      <ng-container matColumnDef="action">
-        <th mat-header-cell *matHeaderCellDef>Ações</th>
-        <td mat-cell *matCellDef="let row">
-            <a routerLink="/task/update/{{ row.id }}" class="edit">
-                <i class="material-icons">
-                    edit
-                </i>
-            </a>
-            <a routerLink="/task/delete/{{ row.id }}" class="delete">
-                <i class="material-icons delete">
-                    delete
-                </i>
-            </a>
-        </td>
-      </ng-container>
-  
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-    </table>
-  </div>
   
