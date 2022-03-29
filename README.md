@@ -1,6 +1,6 @@
 # Task List Angular Interface
 
-Para rodar o projeto copie o repositório e execute o comando ````yarn start```
+Para rodar o projeto copie o repositório e execute o comando ```yarn start```
 
 ## Framework
 
