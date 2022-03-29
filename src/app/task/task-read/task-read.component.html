@@ -1,5 +1,5 @@
 <div>
-  <app-filter-panel></app-filter-panel>
+  <app-filter-panel (emitStatus)="filterTable($event)"></app-filter-panel>
   <div class="mat-elevation-z4">
       <table mat-table [dataSource]="tasks">
         <!-- Id Column -->

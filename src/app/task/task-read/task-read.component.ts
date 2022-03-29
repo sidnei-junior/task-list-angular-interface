@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { FilterPanelService } from 'src/app/components/filter-panel/filter-panel.service';
 import { Task } from '../task.model';
 import { TaskService } from '../task.service';
 
@@ -11,22 +10,21 @@ import { TaskService } from '../task.service';
 export class TaskReadComponent implements OnInit {
 
   tasks: Task[];
+  tasksReadOnly: Task[];
   displayedColumns = ['id', 'title', 'priority', 'action']
+  status = 'doing'
+  statusFilterFunction: any = {
+    'all': () => true,
+    'doing': (task: Task) => !task.solved,
+    'done': (task: Task) => task.solved
+  }
 
-  constructor(private taskService: TaskService,
-    private filterPanelService: FilterPanelService) { }
+  constructor(private taskService: TaskService) { }
 
   ngOnInit(): void {
     this.taskService.read().subscribe(tasks => {
-      console.log('tasks: ', tasks);
-      console.log("this.status: ", this.status)
-      if (this.status === 'all') {
-        this.tasks = tasks
-      } else if (this.status === 'doing') {
-        this.tasks = tasks.filter(task => !task.solved);
-      } else {
-        this.tasks = tasks.filter(task => task.solved);
-      }
+      this.tasks = tasks.filter(this.statusFilterFunction[this.status]);
+      this.tasksReadOnly = tasks;
     })
   }
 
@@ -36,8 +34,9 @@ export class TaskReadComponent implements OnInit {
     return 'Média';
   } 
 
-  get status(): string {
-    return this.filterPanelService.filterPanelData.status;
+  filterTable(newStatusByFilter: string): void {
+    this.status = newStatusByFilter;
+    this.tasks = this.tasksReadOnly.filter(this.statusFilterFunction[this.status]);
   }
 
 }

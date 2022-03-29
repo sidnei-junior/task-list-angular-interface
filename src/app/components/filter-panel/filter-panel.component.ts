@@ -1,5 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { FilterPanelService } from './filter-panel.service';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'app-filter-panel',
@@ -10,26 +9,22 @@ export class FilterPanelComponent implements OnInit {
   
   statusSelected = 'doing';
 
+
   statuses = [
     {viewValue: 'Todas', value: 'all'},
     {viewValue: 'Em andamento', value: 'doing'},
     {viewValue: 'Resolvida', value: 'done'}
   ]
 
-  constructor(private filterPanelService: FilterPanelService) {
-    filterPanelService.filterPanelData = {
-      status: this.statusSelected
-    }
-   }
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
-  changeStatusFilter() {
-    this.filterPanelService.filterPanelData = {
-      status: this.statusSelected
-    }
-    console.log(this.statusSelected)
-  }
+  @Output() emitStatus = new EventEmitter<string>();
 
+  changeStatusFilter() {
+    this.emitStatus.emit(this.statusSelected);
+  }
 }
