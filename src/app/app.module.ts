@@ -28,6 +28,7 @@ import { MatTableModule } from '@angular/material/table';
 import { TaskUpdateComponent } from './task/task-update/task-update.component';
 import { TaskDeleteComponent } from './task/task-delete/task-delete.component';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { FilterPanelComponent } from './components/filter-panel/filter-panel.component';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
     TaskCreateComponent,
     TaskReadComponent,
     TaskUpdateComponent,
-    TaskDeleteComponent
+    TaskDeleteComponent,
+    FilterPanelComponent
   ],
   imports: [
     BrowserModule,
