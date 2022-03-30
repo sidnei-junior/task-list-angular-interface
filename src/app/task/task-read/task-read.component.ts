@@ -11,8 +11,10 @@ export class TaskReadComponent implements OnInit {
 
   tasks: Task[];
   tasksReadOnly: Task[];
-  displayedColumns = ['id', 'title', 'priority', 'action']
-  status = 'doing'
+  displayedColumns = ['id', 'title', 'priority', 'action'];
+  idFilter: number;
+  titleFilter = '';
+  status = 'doing';
   statusFilterFunction: any = {
     'all': () => true,
     'doing': (task: Task) => !task.solved,
@@ -34,9 +36,27 @@ export class TaskReadComponent implements OnInit {
     return 'Média';
   } 
 
-  filterTable(newStatusByFilter: string): void {
+  filterTableId(newIdByFilter: number): void {
+    console.log(newIdByFilter)
+    this.idFilter = newIdByFilter;
+    this.filterTable();
+  }
+
+  filterTableTitle(newTitleByFilter: string): void {
+    this.titleFilter = newTitleByFilter;
+    this.filterTable();
+  }
+
+  filterTableStatus(newStatusByFilter: string): void {
     this.status = newStatusByFilter;
-    this.tasks = this.tasksReadOnly.filter(this.statusFilterFunction[this.status]);
+    this.filterTable();
+  }
+
+  filterTable() {
+    this.tasks = this.tasksReadOnly
+      .filter(this.statusFilterFunction[this.status])
+      .filter(task => task.title.toLowerCase().indexOf(this.titleFilter.toLowerCase())+1)
+      .filter(task => (task.id == this.idFilter) || !this.idFilter);
   }
 
 }

@@ -1,5 +1,11 @@
 <form>
     <mat-form-field>
+        <input matInput placeholder="Filtro por Id" type="number" [(ngModel)]="idSelected" [ngModelOptions]="{standalone: true}" (ngModelChange)="changeIdFilter()">
+    </mat-form-field>
+    <mat-form-field>
+        <input matInput placeholder="Filtro por Título" [(ngModel)]="titleSelected" [ngModelOptions]="{standalone: true}" (ngModelChange)="changeTitleFilter()">
+    </mat-form-field>
+    <mat-form-field>
         <mat-label>Filtro por estado</mat-label>
         <mat-select [(ngModel)]="statusSelected" [ngModelOptions]="{standalone: true}" (selectionChange)="changeStatusFilter()">
             <mat-option *ngFor="let status of statuses" [value]="status.value">

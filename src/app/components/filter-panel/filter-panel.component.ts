@@ -7,6 +7,8 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class FilterPanelComponent implements OnInit {
   
+  idSelected: number;
+  titleSelected = '';
   statusSelected = 'doing';
 
 
@@ -22,9 +24,20 @@ export class FilterPanelComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  @Output() emitId = new EventEmitter<number>();
+  @Output() emitTitle = new EventEmitter<string>();
   @Output() emitStatus = new EventEmitter<string>();
+
+  changeIdFilter() {
+    this.emitId.emit(this.idSelected);
+  }
+
+  changeTitleFilter() {
+    this.emitTitle.emit(this.titleSelected);
+  }
 
   changeStatusFilter() {
     this.emitStatus.emit(this.statusSelected);
   }
+
 }
