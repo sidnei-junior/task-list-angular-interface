@@ -1,9 +1,9 @@
 <form>
     <mat-form-field>
-        <input matInput placeholder="Filtro por Id" type="number" [(ngModel)]="idSelected" [ngModelOptions]="{standalone: true}" (ngModelChange)="changeIdFilter()">
+        <input matInput placeholder="Filtro por Id" type="number" [(ngModel)]="idSelected" [ngModelOptions]="{standalone: true}" (ngModelChange)="changeIdFilter()" autocomplete="off">
     </mat-form-field>
     <mat-form-field>
-        <input matInput placeholder="Filtro por Título" [(ngModel)]="titleSelected" [ngModelOptions]="{standalone: true}" (ngModelChange)="changeTitleFilter()">
+        <input matInput placeholder="Filtro por Título" [(ngModel)]="titleSelected" [ngModelOptions]="{standalone: true}" (ngModelChange)="changeTitleFilter()" autocomplete="off">
     </mat-form-field>
     <mat-form-field>
         <mat-label>Filtro por estado</mat-label>
